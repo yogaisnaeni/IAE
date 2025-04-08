@@ -1,0 +1,249 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 960px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.8em;
+    margin-bottom: 30px;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container input[type="file"] {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    background-color: #28a745; /* Warna tombol Tambah */
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #218838;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.item-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    padding: 15px;
+    text-align: center;
+}
+
+.item-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.item-card h3 {
+    color: #2c3e50;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.item-card p {
+    color: #555;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.item-card .actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.item-card .actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease;
+}
+
+.item-card .actions button:nth-child(1) { background-color: #17a2b8; color: white; } /* Preview */
+.item-card .actions button:nth-child(2) { background-color: #ffc107; color: #212529; } /* Edit */
+.item-card .actions button:nth-child(3) { background-color: #dc3545; color: white; } /* Hapus */
+
+.item-card .actions button:hover {
+    opacity: 0.9;
+}
+
+/* Styling Modal (tidak banyak berubah dari sebelumnya) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content input[type="file"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.modal-content .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-content .button-group button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content .button-group button:nth-child(1) { background-color: #28a745; color: white; } /* Simpan */
+.modal-content .button-group button:nth-child(2) { background-color: #dc3545; color: white; } /* Batal */
+
+.modal-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.modal-content strong {
+    font-weight: bold;
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .form-container {
+        grid-template-columns: 1fr;
+    }
+
+    .item-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+    }
+}
+
+table#itemTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin-bottom: 20px; /* Tambahkan margin bawah untuk memisahkan dari grid */
+}
+
+table#itemTable th, table#itemTable td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+table#itemTable th {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+}
+
+table#itemTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table#itemTable td:last-child {
+    text-align: center; /* Untuk tombol aksi di tabel */
+}
+
+table#itemTable td img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 4px;
+    vertical-align: middle; /* Agar gambar sejajar dengan teks */
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Inventory Barang</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Inventory Barang</h1>
+
+        <div class="form-container">
+            <input type="text" id="nama" placeholder="Nama Barang" required />
+            <input type="number" id="jumlah" placeholder="Jumlah" required />
+            <input type="text" id="kategori" placeholder="Kategori" required />
+            <input type="file" id="foto" accept="image/png, image/jpeg" />
+            <button id="addButton">Tambah</button>
+        </div>
+
+        <table id="itemTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Jumlah</th>
+                    <th>Kategori</th>
+                    <th>Foto</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="itemTableBody"></tbody>
+        </table>
+
+        <h2>Tampilan Grid</h2>
+        <div class="item-grid" id="itemGrid">
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3>Edit Barang</h3>
+            <input type="text" id="editNama" placeholder="Nama Barang">
+            <input type="number" id="editJumlah" placeholder="Jumlah">
+            <input type="text" id="editKategori" placeholder="Kategori">
+            <input type="file" id="editFoto" accept="image/png, image/jpeg">
+            <div class="button-group">
+                <button onclick="submitEdit()">Simpan</button>
+                <button onclick="closeEditModal()">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <p>Yakin ingin menghapus barang ini?</p>
+            <div class="button-group">
+                <button onclick="confirmDelete()">Hapus</button>
+                <button onclick="closeDeleteModal()">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <h3>Detail Barang</h3>
+            <p><strong>Nama:</strong> <span id="previewNama"></span></p>
+            <p><strong>Jumlah:</strong> <span id="previewJumlah"></span></p>
+            <p><strong>Kategori:</strong> <span id="previewKategori"></span></p>
+            <img id="previewFoto" src="" alt="Foto Barang" style="max-width: 100%; height: auto;">
+            <br>
+            <button onclick="closePreviewModal()">Tutup</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
